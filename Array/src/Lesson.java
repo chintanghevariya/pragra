@@ -36,7 +36,9 @@ public class Lesson {
         // to print array
         int j = 0;
         while(j < orderPrice.length ){
-            System.out.println("value of index : " + j + " is " +orderPrice[j]);
+            if(j == 2 || j == 5 || j == 6 || j == 9) {
+                System.out.println("value of index : " + j + " is " + orderPrice[j]);
+            }
             j++;
         }
 
