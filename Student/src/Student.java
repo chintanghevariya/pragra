@@ -8,9 +8,13 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
-
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     public void setEmail(String email) {
@@ -18,6 +22,7 @@ public class Student {
     }
 
     public String getUserName() {
+        System.out.println("bla bla bla");
         return userName;
     }
 
