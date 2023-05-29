@@ -1,0 +1,149 @@
+Index: src/Student.java
+===================================================================
+diff --git a/src/Student.java b/src/Student.java
+new file mode 100644
+--- /dev/null	
++++ b/src/Student.java	
+@@ -0,0 +1,7 @@
++public class Student<T> {
++    Object data;
++    public void manipulate(T data){
++        System.out.println();
++
++    }
++}
+Index: ../Student/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$/..\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Student/.idea/vcs.xml b/../Student/.idea/vcs.xml
+--- a/../Student/.idea/vcs.xml	
++++ b/../Student/.idea/vcs.xml	
+@@ -2,5 +2,6 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/java-pragra" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/Main.java
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+new file mode 100644
+--- /dev/null	
++++ b/src/Main.java	
+@@ -0,0 +1,23 @@
++import java.util.ArrayDeque;
++import java.util.ArrayList;
++import java.util.Collection;
++import java.util.LinkedList;
++
++public class Main {
++    public static void main(String[] args) {
++        //Collection
++        /*
++        int -> Integer
++         */
++        // Generic classes
++        ArrayList<Integer> numbers = new ArrayList<Integer>();
++        numbers.add(5);
++        Student s1= new Student();
++        //s1.manipulate("d");
++        s1.manipulate(5);
++
++
++
++    }
++
++}
+\ No newline at end of file
+Index: ../JavaSession/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\n    public static void main(String[] args) {\n        // 5\n        // syntax of declaring variables\n        // datatype variableName;\n        // numbers -> integer type of numberes + -, full numbers\n        // short int long\n\n        int marks;\n        long phoneNumber;\n        short id;\n        String name;\n        float averageMarks;\n        char attend;\n        boolean isOnline;\n        double largeDecimal;\n\n        // Primitive data types\n\n        // Non-Primitive data types -> Class, Objects, Interface and String\n\n        marks = 500;\n        marks = marks * marks;\n        System.out.println(marks);\n\n        name = \"chintan ghevariya\";\n        name += \" INDIA\";\n        System.out.println(name);\n\n\n        phoneNumber = 1234567890;\n        System.out.println(phoneNumber);\n\n        id = 123;\n        System.out.println(id);\n\n        averageMarks = 12.34343434f;\n        System.out.println(averageMarks);\n\n        attend = 67;\n        System.out.println(attend);\n\n        isOnline = false;\n        System.out.println(isOnline);\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../JavaSession/src/Main.java b/../JavaSession/src/Main.java
+--- a/../JavaSession/src/Main.java	
++++ b/../JavaSession/src/Main.java	
+@@ -6,42 +6,44 @@
+         // numbers -> integer type of numberes + -, full numbers
+         // short int long
+ 
+-        int marks;
+-        long phoneNumber;
+-        short id;
+-        String name;
+-        float averageMarks;
+-        char attend;
+-        boolean isOnline;
+-        double largeDecimal;
++//        int marks;
++//        long phoneNumber;
++//        short id;
++//        String name;
++//        float averageMarks;
++//        char attend;
++//        boolean isOnline;
++//        double largeDecimal;
+ 
+         // Primitive data types
+ 
+         // Non-Primitive data types -> Class, Objects, Interface and String
+ 
+-        marks = 500;
+-        marks = marks * marks;
+-        System.out.println(marks);
+-
+-        name = "chintan ghevariya";
+-        name += " INDIA";
+-        System.out.println(name);
+-
+-
+-        phoneNumber = 1234567890;
+-        System.out.println(phoneNumber);
+-
+-        id = 123;
+-        System.out.println(id);
++//        marks = 500;
++//        marks = marks * marks;
++//        System.out.println(marks);
++//
++//        name = "chintan ghevariya";
++//        name += " INDIA";
++//        System.out.println(name);
++//
++//
++//        phoneNumber = 1234567890;
++//        System.out.println(phoneNumber);
++//
++//        id = 123;
++//        System.out.println(id);
++//
++//        averageMarks = 12.34343434f;
++//        System.out.println(averageMarks);
++//
++//        attend = 67;
++//        System.out.println(attend);
++//
++//        isOnline = false;
++//        System.out.println(isOnline);
+ 
+-        averageMarks = 12.34343434f;
+-        System.out.println(averageMarks);
+-
+-        attend = 67;
+-        System.out.println(attend);
+-
+-        isOnline = false;
+-        System.out.println(isOnline);
++        // Exercise  - 2
+ 
+     }
+ }
+\ No newline at end of file

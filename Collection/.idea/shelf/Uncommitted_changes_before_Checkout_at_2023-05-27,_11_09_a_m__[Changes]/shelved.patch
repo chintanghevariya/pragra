@@ -1,0 +1,1358 @@
+Index: ../Oops/src/IRobot.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public interface IRobot {\n}\n
+===================================================================
+diff --git a/../Oops/src/IRobot.java b/../Oops/src/IRobot.java
+--- a/../Oops/src/IRobot.java	
++++ b/../Oops/src/IRobot.java	
+@@ -1,2 +1,18 @@
+-package PACKAGE_NAME;public interface IRobot {
++public interface IRobot {
++    // Attributes are public, static and final.
++    String typeOfBat = "Li-Ion";
++
++
++    //Methods are public and abstract by default.
++    void start();
++    void stop();
++
++    //static method can be written in interface.
++    static void talk(){
++        System.out.println("talking");
++    }
++
++    default void walk(){
++        System.out.println("walking from metarobo");
++    }
+ }
+Index: ../Oops/src/NuralinkRobo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public interface NuralinkRobo {\n}\n
+===================================================================
+diff --git a/../Oops/src/NuralinkRobo.java b/../Oops/src/NuralinkRobo.java
+--- a/../Oops/src/NuralinkRobo.java	
++++ b/../Oops/src/NuralinkRobo.java	
+@@ -1,2 +1,22 @@
+-package PACKAGE_NAME;public interface NuralinkRobo {
++public class NuralinkRobo implements IRobot{
++
++
++    public void hardStops() {
++
++    }
++
++    @Override
++    public void start() {
++
++    }
++
++    @Override
++    public void stop() {
++
++    }
++
++    @Override
++    public void walk() {
++        IRobot.super.walk();
++    }
+ }
+Index: ../Oops/src/MetaRobo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class MetaRobo {\n}\n
+===================================================================
+diff --git a/../Oops/src/MetaRobo.java b/../Oops/src/MetaRobo.java
+--- a/../Oops/src/MetaRobo.java	
++++ b/../Oops/src/MetaRobo.java	
+@@ -1,2 +1,22 @@
+-package PACKAGE_NAME;public class MetaRobo {
+-}
++public class MetaRobo implements IRussianRobo,ISpecialRobot{
++
++    @Override
++    public void start() {
++        System.out.println("starting");
++    }
++
++    @Override
++    public void stop() {
++        System.out.println("stopping");
++    }
++
++    @Override
++    public void speFun() {
++
++    }
++
++    @Override
++    public void walk(){
++        IRussianRobo.super.walk();
++    }
++}
+\ No newline at end of file
+Index: ../Oops/src/RoboEssential.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class RoboEssential {\n}\n
+===================================================================
+diff --git a/../Oops/src/RoboEssential.java b/../Oops/src/RoboEssential.java
+--- a/../Oops/src/RoboEssential.java	
++++ b/../Oops/src/RoboEssential.java	
+@@ -1,2 +1,3 @@
+-package PACKAGE_NAME;public class RoboEssential {
++public abstract class RoboEssential extends IAbstractRobots {
++
+ }
+Index: ../Oops/src/Rectangle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Rectangle {\n}\n
+===================================================================
+diff --git a/../Oops/src/Rectangle.java b/../Oops/src/Rectangle.java
+--- a/../Oops/src/Rectangle.java	
++++ b/../Oops/src/Rectangle.java	
+@@ -1,2 +1,21 @@
+-package PACKAGE_NAME;public class Rectangle {
++public class Rectangle extends Shape{
++
++    int width, height;
++
++    public Rectangle(int width, int height) {
++        super(4);
++        this.width = width;
++        this.height = height;
++    }
++
++
++    @Override
++    public int calculateArea() {
++        return width * height;
++    }
++
++    @Override
++    public int calculatePerimeter() {
++        return 2*(height+width);
++    }
+ }
+Index: ../JavaSession/src/Exercise2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Exercise2 {\n}\n
+===================================================================
+diff --git a/../JavaSession/src/Exercise2.java b/../JavaSession/src/Exercise2.java
+--- a/../JavaSession/src/Exercise2.java	
++++ b/../JavaSession/src/Exercise2.java	
+@@ -1,2 +1,49 @@
+-package PACKAGE_NAME;public class Exercise2 {
++import com.sun.org.apache.bcel.internal.generic.LADD;
++
++import java.util.Scanner;
++
++public class Exercise2 {
++    // 1 Declare an array to hold 10 decimal values and calculate sum of these values.
++
++    public static void main(String[] args) {
++//        float[] values = new float[10];
++//        float sum = 0;
++//        Scanner sc = new Scanner(System.in);
++//        for (int i = 0; i < values.length; i++) {
++//            System.out.println("Enter value for " + (i + 1));
++//            values[i] = sc.nextFloat();
++//        }
++//        for (int i = 0; i < values.length; i++) {
++//            sum += values[i];
++//        }
++//        System.out.println("The sum for 10 decimal value is " + sum);
++
++
++        // Declare an array of 10 integer, find the largest value.
++
++        int[] largest = {1, 32, 34, 23, 65, 19, 14, 1230, 43, 121};
++        int max = 0, temp = 0;
++        for (int i = 0; i < largest.length; i++) {
++            for (int j = i + 1; j < largest.length; j++) {
++                if(largest[i] > largest[j]){
++                    temp = largest[i];
++                    largest[i] = largest[j];
++                    largest[j] = temp;
++                }
++            }
++        }
++        System.out.println("Largest Number " + largest[largest.length-1]);
++        // Declare an array of 10 integer, find the smallest value.
++        for (int i = 0; i < largest.length; i++) {
++            for (int j = 0; j < largest.length; j++) {
++                if(largest[i] > largest[j]){
++                    temp = largest[i];
++                    largest[i] = largest[j];
++                    largest[j] = temp;
++                }
++            }
++        }
++        System.out.println("Smallest Number " + largest[largest.length-1]);
++    }
++
+ }
+Index: ../Oops/src/Animal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Animal {\n}\n
+===================================================================
+diff --git a/../Oops/src/Animal.java b/../Oops/src/Animal.java
+--- a/../Oops/src/Animal.java	
++++ b/../Oops/src/Animal.java	
+@@ -1,2 +1,12 @@
+-package PACKAGE_NAME;public class Animal {
++public class Animal {
++    public String name ;
++    public static final int numberOfLegs = 4;
++
++    public Animal(String name) {
++        this.name = name;
++    }
++
++    public final void eats(){
++        System.out.println("eating");
++    }
+ }
+Index: ../Oops/src/ISpecialRobot.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public interface ISpecialRobot {\n}\n
+===================================================================
+diff --git a/../Oops/src/ISpecialRobot.java b/../Oops/src/ISpecialRobot.java
+--- a/../Oops/src/ISpecialRobot.java	
++++ b/../Oops/src/ISpecialRobot.java	
+@@ -1,2 +1,3 @@
+-package PACKAGE_NAME;public interface ISpecialRobot {
++public interface ISpecialRobot extends IRobot {
++    void speFun();
+ }
+Index: ../Oops/src/Static.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Static {\n}\n
+===================================================================
+diff --git a/../Oops/src/Static.java b/../Oops/src/Static.java
+--- a/../Oops/src/Static.java	
++++ b/../Oops/src/Static.java	
+@@ -1,2 +1,30 @@
+-package PACKAGE_NAME;public class Static {
++public class Static {
++    public String firstName = "Tom";
++    public static String schoolName = "Pragra";
++
++    public static void study(){
++        // static method can not call not static method.
++        System.out.println("student is studying");
++        assignment();
++    }
++
++
++
++    public static void assignment(){
++        study();
++    }
++
++    public void play(){
++        // non-static method can call static method.
++        sleep();
++        study();
++    }
++    public void sleep(){
++        // non-static method can call static method.
++        play();
++        study();
++    }
++
++
++
+ }
+Index: ../Oops/src/Polymorphism/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Polymorphism;public class Car {\n}\n
+===================================================================
+diff --git a/../Oops/src/Polymorphism/Car.java b/../Oops/src/Polymorphism/Car.java
+--- a/../Oops/src/Polymorphism/Car.java	
++++ b/../Oops/src/Polymorphism/Car.java	
+@@ -1,2 +1,6 @@
+-package Polymorphism;public class Car {
++package Polymorphism;
++
++public interface Car {
++    int tire = 0;
++    public void drive();
+ }
+Index: ../Oops/src/Shape.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Shape {\n}\n
+===================================================================
+diff --git a/../Oops/src/Shape.java b/../Oops/src/Shape.java
+--- a/../Oops/src/Shape.java	
++++ b/../Oops/src/Shape.java	
+@@ -1,2 +1,10 @@
+-package PACKAGE_NAME;public class Shape {
++public abstract class Shape {
++    int sides;
++
++    public Shape(int sides) {
++        this.sides = sides;
++    }
++
++    public abstract int calculateArea();
++    public abstract int calculatePerimeter();
+ }
+Index: ../Oops/src/Polymorphism/BMW.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Polymorphism;public class BMW {\n}\n
+===================================================================
+diff --git a/../Oops/src/Polymorphism/BMW.java b/../Oops/src/Polymorphism/BMW.java
+--- a/../Oops/src/Polymorphism/BMW.java	
++++ b/../Oops/src/Polymorphism/BMW.java	
+@@ -1,2 +1,8 @@
+-package Polymorphism;public class BMW {
++package Polymorphism;
++
++public class BMW implements Car{
++    int tire = 4;
++    public void drive(){
++        System.out.println("driving BMW");
++    }
+ }
+Index: ../Oops/src/IRussianRobo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public interface IRussianRobo {\n}\n
+===================================================================
+diff --git a/../Oops/src/IRussianRobo.java b/../Oops/src/IRussianRobo.java
+--- a/../Oops/src/IRussianRobo.java	
++++ b/../Oops/src/IRussianRobo.java	
+@@ -1,2 +1,5 @@
+-package PACKAGE_NAME;public interface IRussianRobo {
++public interface IRussianRobo {
++    default void walk(){
++        System.out.println("Russian Robo wwalking");
++    }
+ }
+Index: ../Oops/src/Polymorphism/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Polymorphism;public class Main {\n}\n
+===================================================================
+diff --git a/../Oops/src/Polymorphism/Main.java b/../Oops/src/Polymorphism/Main.java
+--- a/../Oops/src/Polymorphism/Main.java	
++++ b/../Oops/src/Polymorphism/Main.java	
+@@ -1,2 +1,31 @@
+-package Polymorphism;public class Main {
++package Polymorphism;
++
++import java.util.Scanner;
++
++public class Main {
++    public static void main(String[] args) {
++        Car c = null;
++        int choice = 0;
++        Scanner sc = new Scanner(System.in);
++
++        System.out.println("1. Honda \n2. BMW \n3. Toyota");
++        choice = sc.nextInt();
++
++        switch(choice){
++            case 1:
++                c = new Honda();
++                break;
++            case 2:
++                c = new BMW();
++                break;
++            case 3:
++                c = new Toyota();
++                break;
++            default:
++                System.out.println("please try again");
++        }
++        c.drive();
++
++
++    }
+ }
+Index: ../Oops/src/Polymorphism/Honda.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Polymorphism;public class Honda {\n}\n
+===================================================================
+diff --git a/../Oops/src/Polymorphism/Honda.java b/../Oops/src/Polymorphism/Honda.java
+--- a/../Oops/src/Polymorphism/Honda.java	
++++ b/../Oops/src/Polymorphism/Honda.java	
+@@ -1,2 +1,8 @@
+-package Polymorphism;public class Honda {
++package Polymorphism;
++
++public class Honda implements Car{
++    int tire = 6;
++    public void drive(){
++        System.out.println("driving Honda");
++    }
+ }
+Index: ../Oops/src/Polymorphism/Toyota.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Polymorphism;public class Toyota {\n}\n
+===================================================================
+diff --git a/../Oops/src/Polymorphism/Toyota.java b/../Oops/src/Polymorphism/Toyota.java
+--- a/../Oops/src/Polymorphism/Toyota.java	
++++ b/../Oops/src/Polymorphism/Toyota.java	
+@@ -1,2 +1,8 @@
+-package Polymorphism;public class Toyota {
++package Polymorphism;
++
++public class Toyota implements Car{
++    int tire = 4;
++    public void drive(){
++        System.out.println("driving Toyota");
++    }
+ }
+Index: ../Oops/src/ToString/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ToString;\n\npublic class StringSession {\n    public static void main(String[] args) {\n        // for non pre\n        int a = 6;\n        System.out.println(a);\n    }\n}\n
+===================================================================
+diff --git a/../Oops/src/ToString/Main.java b/../Oops/src/ToString/Main.java
+--- a/../Oops/src/ToString/Main.java	
++++ b/../Oops/src/ToString/Main.java	
+@@ -1,9 +1,12 @@
+ package ToString;
+ 
+-public class StringSession {
++public class Main {
+     public static void main(String[] args) {
+-        // for non pre
++        // for non premitive data -> it prints memory address / reference
+         int a = 6;
+-        System.out.println(a);
++        String name = "abc";
++        Car c = new Car();
++        System.out.println(c.toString()); //toString() convert to string.
++        System.out.println(c);
+     }
+ }
+Index: ../Oops/src/ToString/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ToString;public class Car {\n}\n
+===================================================================
+diff --git a/../Oops/src/ToString/Car.java b/../Oops/src/ToString/Car.java
+--- a/../Oops/src/ToString/Car.java	
++++ b/../Oops/src/ToString/Car.java	
+@@ -1,2 +1,13 @@
+-package ToString;public class Car {
++package ToString;
++
++public class Car {
++    int tires, year;
++    String engineType, model;
++    String color, make;
++
++    public String toString(){
++        return "model : " + model + " Tires : " + tires
++                + "engine Type : " + engineType + " Color : " +
++                color + " make : " + make + " year : " + year;
++    }
+ }
+Index: ../Oops/src/Triangle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Triangle {\n}\n
+===================================================================
+diff --git a/../Oops/src/Triangle.java b/../Oops/src/Triangle.java
+--- a/../Oops/src/Triangle.java	
++++ b/../Oops/src/Triangle.java	
+@@ -1,2 +1,24 @@
+-package PACKAGE_NAME;public class Triangle {
++public class Triangle extends Shape{
++    int s1, s2, s3;
++
++    public Triangle(int s1, int s2, int s3) {
++        super(3);
++        this.s1 = s1;
++        this.s2 = s2;
++        this.s3 = s3;
++    }
++
++    public Triangle() {
++        super(3);
++    }
++
++    @Override
++    public int calculatePerimeter() {
++        return s1+s2+s3;
++    }
++
++    @Override
++    public int calculateArea() {
++        return (s1*s2)/2;
++    }
+ }
+Index: ../Oops/src/TimHortans/TimsItems.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public interface TimsItems {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/TimsItems.java b/../Oops/src/TimHortans/TimsItems.java
+--- a/../Oops/src/TimHortans/TimsItems.java	
++++ b/../Oops/src/TimHortans/TimsItems.java	
+@@ -1,2 +1,6 @@
+-package TimHortans;public interface TimsItems {
++package TimHortans;
++
++public interface TimsItems {
++     double getPrice();
++     String toString();
+ }
+Index: ../Oops/src/TimHortans/TimsMerch.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public interface TimsMerch {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/TimsMerch.java b/../Oops/src/TimHortans/TimsMerch.java
+--- a/../Oops/src/TimHortans/TimsMerch.java	
++++ b/../Oops/src/TimHortans/TimsMerch.java	
+@@ -1,2 +1,5 @@
+-package TimHortans;public interface TimsMerch {
++package TimHortans;
++
++public interface TimsMerch extends TimsItems{
++    String getFeatures();
+ }
+Index: ../Oops/src/TimHortans/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Main {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Main.java b/../Oops/src/TimHortans/Main.java
+--- a/../Oops/src/TimHortans/Main.java	
++++ b/../Oops/src/TimHortans/Main.java	
+@@ -1,2 +1,219 @@
+-package TimHortans;public class Main {
++package TimHortans;
++
++import java.math.BigInteger;
++import java.util.Scanner;
++
++public class Main {
++    static int counter = 0;
++    static double balance = 5.0;
++    public static void main(String[] args) {
++        TimsItems[] items = new TimsItems[100];
++        long cardNumber = 1234567890123456L;
++        int CVV = 000;
++        long monthYear = 1224;
++
++        Scanner sc = new Scanner(System.in);
++        int choice = 0;
++        boolean isTrue = true;
++        double total = 0;
++        while(isTrue) {
++            System.out.println("Welcome to Tim hortons");
++            System.out.println("Please select one from the following options : ");
++            System.out.println("1. Merchendise \n2. Consumable \n3. Checkout\n ");
++            choice = sc.nextInt();
++            switch (choice) {
++                case 1:
++                    System.out.println("1. Mugs \n2. Coffee Powder \n3. Gift cards \n4. Hockey Cards");
++                    choice = sc.nextInt();
++                    switch (choice){
++                        case 1:
++                            System.out.println("you have selected Mug");
++                            Mugs m1 = new Mugs();
++                            System.out.println("Price : " + m1.getPrice());
++                            System.out.println("Features : " + m1.getFeatures() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = m1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 2:
++                            System.out.println("you have selected Coffee Powder");
++                            CoffeePowder c1 = new CoffeePowder();
++                            System.out.println("Price : " + c1.getPrice());
++                            System.out.println("Features : " + c1.getFeatures() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = c1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 3:
++                            System.out.println("you have selected Gift powder");
++                            GiftCards g1 = new GiftCards();
++                            System.out.println("Price : " + g1.getPrice());
++                            System.out.println("Features : " + g1.getFeatures() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = g1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 4:
++                            System.out.println("you have selected Hockey Cards");
++                            HockeyCards h1 = new HockeyCards();
++                            System.out.println("Price : " + h1.getPrice());
++                            System.out.println("Features : " + h1.getFeatures() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = h1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        default:
++                            System.out.println("Please choose correct options !");
++                            break;
++                    }
++                    break;
++
++                case 2:
++                    System.out.println("Please select one from the following : ");
++                    System.out.println("1. Donuts \n 2. Bagel \n 3. Coffee \n 4. Wrap \n 5. Sandwich\n");
++                    choice = sc.nextInt();
++                    switch (choice){
++                        case 1:
++                            System.out.println("you have selected Donuts");
++                            Donuts d1 = new Donuts();
++                            System.out.println("Price : " + d1.getPrice());
++                            System.out.println("Calories : " + d1.getCalories() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = d1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 2:
++                            System.out.println("you have selected Bagels");
++                            Bagel b1 = new Bagel();
++                            System.out.println("Price : " + b1.getPrice());
++                            System.out.println("Calories : " + b1.getCalories() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = b1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 3:
++                            System.out.println("you have selected Coffee");
++                            Coffee c1 = new Coffee();
++                            System.out.println("Price : " + c1.getPrice());
++                            System.out.println("Calories : " + c1.getCalories() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = c1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 4:
++                            System.out.println("you have selected Wrap");
++                            Wrap w1 = new Wrap();
++                            System.out.println("Price : " + w1.getPrice());
++                            System.out.println("Calories : " + w1.getCalories() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = w1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++                        case 5:
++                            System.out.println("you have selected Sandwiches");
++                            Sandwich s1 = new Sandwich();
++                            System.out.println("Price : " + s1.getPrice());
++                            System.out.println("Calories : " + s1.getCalories() +"\n");
++
++                            System.out.println("1. Order \n 2. Continue with other products");
++                            choice = sc.nextInt();
++                            if(choice == 1){
++                                items[counter++] = s1;
++                                System.out.println("your order has been successfully placed.");
++                                break;
++                            } else{
++                                continue;
++                            }
++
++                        default :
++                            System.out.println("please choose the correct option");
++                            break;
++                    }
++                    break;
++                case 3:
++                    System.out.println("Thank you choosing us. \n-----Checking out-----");
++                    System.out.println("----------------------");
++                    for(int i = 0; i < counter;i++){
++                        System.out.println(items[i].toString()+"      $" + items[i].getPrice() + "\n" );
++                        total += items[i].getPrice();
++                    }
++                    System.out.println("your total due is : " + total);
++                    System.out.println("Please enter your 16 digit credit card number :");
++                    long temp = sc.nextLong();
++                    System.out.println("Enter MMYY :");
++                    long tDate = sc.nextLong();
++                    System.out.println("Enter CVV : ");
++                    int tCVV = sc.nextInt();
++
++                    if(temp == cardNumber && tCVV == CVV && tDate == monthYear){
++                        if(total >= balance){
++                            System.out.println("Opps... Insufficient balance in your wallet.");
++                            System.out.println("would you like to add money into your wallet ? (Y/N)");
++                            String y = sc.next();
++                            if(y.equals("Y")){
++                                System.out.println("Enter the amount you would like to enter between 1 to 100");
++                                balance = sc.nextInt();
++                                System.out.println("your updated balance is :" + balance);}
++                        }
++
++                        System.out.println("Thank you for the payment");
++                        System.out.println("your wallet's new balance : " + (balance-total));
++                    }else{
++                        System.out.println("your card number is not valid");
++                    }
++                    isTrue = false;
++                    break;
++                default:
++                    System.out.println("please choose correct options");
++            }
++        }
++    }
+ }
+Index: ../Oops/src/RightAngleTriangle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class RightAngleTriangle {\n}\n
+===================================================================
+diff --git a/../Oops/src/RightAngleTriangle.java b/../Oops/src/RightAngleTriangle.java
+--- a/../Oops/src/RightAngleTriangle.java	
++++ b/../Oops/src/RightAngleTriangle.java	
+@@ -1,2 +1,22 @@
+-package PACKAGE_NAME;public class RightAngleTriangle {
++public class RightAngleTriangle extends Triangle{
++
++
++    int base, height;
++
++    public RightAngleTriangle(int base, int height) {
++        super();
++        this.base = base;
++        this.height = height;
++    }
++
++    @Override
++    public int calculateArea() {
++       return (base*height)/2;
++    }
++
++    @Override
++    public int calculatePerimeter() {
++        int c = (int) Math.sqrt((base*base) + (height*height));
++        return base+height+c;
++    }
+ }
+Index: ../Oops/src/TimHortans/CoffeePowder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class CoffeePowder {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/CoffeePowder.java b/../Oops/src/TimHortans/CoffeePowder.java
+--- a/../Oops/src/TimHortans/CoffeePowder.java	
++++ b/../Oops/src/TimHortans/CoffeePowder.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class CoffeePowder {
++package TimHortans;
++
++public class CoffeePowder implements TimsMerch {
++    @Override
++    public double getPrice() {
++        return 9.99;
++    }
++
++    @Override
++    public String getFeatures() {
++        return "smoothness and complexity with no off-flavors.";
++    }
++
++    @Override
++    public String toString() {
++        return "CoffeePowder";
++    }
+ }
+Index: ../Oops/src/TimHortans/GiftCards.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class GiftCards {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/GiftCards.java b/../Oops/src/TimHortans/GiftCards.java
+--- a/../Oops/src/TimHortans/GiftCards.java	
++++ b/../Oops/src/TimHortans/GiftCards.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class GiftCards {
++package TimHortans;
++
++public class GiftCards implements TimsMerch{
++    @Override
++    public double getPrice() {
++        return 25;
++    }
++
++    @Override
++    public String getFeatures() {
++        return "It never get expired";
++    }
++
++    @Override
++    public String toString() {
++        return "GiftCards";
++    }
+ }
+Index: ../Oops/src/Square.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Square {\n}\n
+===================================================================
+diff --git a/../Oops/src/Square.java b/../Oops/src/Square.java
+--- a/../Oops/src/Square.java	
++++ b/../Oops/src/Square.java	
+@@ -1,2 +1,10 @@
+-package PACKAGE_NAME;public class Square {
++public class Square extends Rectangle{
++    int height;
++
++    public Square(int height) {
++        super(height,height);
++        this.height = height;
++//        super.height = height;
++//        super.width = height;
++    }
+ }
+Index: ../Oops/src/TimHortans/TimsConsumables.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public interface TimsConsumables {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/TimsConsumables.java b/../Oops/src/TimHortans/TimsConsumables.java
+--- a/../Oops/src/TimHortans/TimsConsumables.java	
++++ b/../Oops/src/TimHortans/TimsConsumables.java	
+@@ -1,2 +1,15 @@
+-package TimHortans;public interface TimsConsumables {
++package TimHortans;
++
++public interface TimsConsumables extends TimsItems {
++    int getCalories();
++
++    @Override
++    default double getPrice() {
++        return 0;
++    }
++
++    @Override
++    String toString();
++
++
+ }
+Index: ../Oops/src/TimHortans/Mugs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Mugs {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Mugs.java b/../Oops/src/TimHortans/Mugs.java
+--- a/../Oops/src/TimHortans/Mugs.java	
++++ b/../Oops/src/TimHortans/Mugs.java	
+@@ -1,2 +1,17 @@
+-package TimHortans;public class Mugs {
++package TimHortans;
++
++public class Mugs implements TimsMerch{
++    @Override
++    public double getPrice() {
++        return 5.5;
++    }
++    @Override
++    public String getFeatures() {
++        return "Beautiful red colored mug";
++    }
++
++    @Override
++    public String toString() {
++        return "Mugs";
++    }
+ }
+Index: ../Oops/src/readMe.md
+===================================================================
+diff --git a/../Oops/src/readMe.md b/../Oops/src/readMe.md
+--- a/../Oops/src/readMe.md	
++++ b/../Oops/src/readMe.md	
+@@ -1,0 +1,4 @@
++## OOPs
++
++## Inheritance
++    Parent - Child relationship
+\ No newline at end of file
+Index: ../Oops/src/TimHortans/Bagel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Bagel {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Bagel.java b/../Oops/src/TimHortans/Bagel.java
+--- a/../Oops/src/TimHortans/Bagel.java	
++++ b/../Oops/src/TimHortans/Bagel.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class Bagel {
++package TimHortans;
++
++public class Bagel implements TimsConsumables{
++    @Override
++    public int getCalories() {
++        return 225;
++    }
++
++    @Override
++    public double getPrice() {
++        return 1.99;
++    }
++
++    @Override
++    public String toString() {
++        return "Bagel";
++    }
+ }
+Index: ../Oops/src/TimHortans/Coffee.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Coffee {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Coffee.java b/../Oops/src/TimHortans/Coffee.java
+--- a/../Oops/src/TimHortans/Coffee.java	
++++ b/../Oops/src/TimHortans/Coffee.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class Coffee {
++package TimHortans;
++
++public class Coffee implements TimsConsumables{
++    @Override
++    public int getCalories() {
++        return 110;
++    }
++
++    @Override
++    public double getPrice() {
++        return 1.79;
++    }
++
++    @Override
++    public String toString() {
++        return "Coffee";
++    }
+ }
+Index: ../Oops/src/Vehicle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Vehicle {\n}\n
+===================================================================
+diff --git a/../Oops/src/Vehicle.java b/../Oops/src/Vehicle.java
+--- a/../Oops/src/Vehicle.java	
++++ b/../Oops/src/Vehicle.java	
+@@ -1,2 +1,23 @@
+-package PACKAGE_NAME;public class Vehicle {
++public class Vehicle {
++    String name, make, color;
++
++    static class Car {
++        public void drive() {
++            System.out.println("car is drivable");
++        }
++    }
++    int tires, year;
++
++    //Method overriding-> same signature(methodName + parameters) and returntype;
++
++    public Vehicle(String color, int tires, int year){
++
++    }
++    public void accelerate(){
++        System.out.println("gunnig booooom......");
++    }
++
++    public void accelerate(int a, int b){
++        System.out.println("gunnig booooom......");
++    }
+ }
+Index: ../Oops/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello world!\");\n\n    }\n}
+===================================================================
+diff --git a/../Oops/src/Main.java b/../Oops/src/Main.java
+--- a/../Oops/src/Main.java	
++++ b/../Oops/src/Main.java	
+@@ -1,6 +1,39 @@
+ public class Main {
++
+     public static void main(String[] args) {
+-        System.out.println("Hello world!");
++
++//        IRobot.talk();
++//        MetaRobo m1 = new MetaRobo();
++//        m1.walk();
++
++//
++//        Rectangle r1 = new Rectangle(10,10);
++//        System.out.println("calculate area of rectangle" + r1.calculateArea());
++//        System.out.println("calculate area of rectangle" + r1.calculatePerimeter());
++//
++//        Triangle t1= new Triangle(10,10,10);
++//        System.out.println("calculate area of triangle" +t1.calculateArea());
++//        System.out.println("calculate area of triangle" +t1.calculatePerimeter());
++//
++//        Square s1 = new Square(10);
++      //  RightAngleTriangle r = new RightAngleTriangle(5,5);
++
++
++
++       // MetaRobo m1 = new MetaRobo();
++
++//        System.out.println("Hello world!");
++//        Car c = new Car("Auto",true);
++//        c.accelerate();
++
++//        Employee e1 = new Employee(1,0,"Google");
++//        Fulltime ft = new Fulltime(2,100000,"Google","health","javaDeveloper");
++//        Parttime pt = new Parttime(3,0,"Google",20,20);
++//        Contractor ct = new Contractor(4,100000,"Google","health","senior",5000,1000);
++//
++//        System.out.println("Fulltime salary = "+ft.calculateSalary());
++//        System.out.println("Parttime salary = "+pt.calculateSalary());
++//        System.out.println("Contractor salary = "+ct.calculateSalary());
+ 
+     }
+ }
+\ No newline at end of file
+Index: ../Oops/src/TimHortans/HockeyCards.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class HockeyCards {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/HockeyCards.java b/../Oops/src/TimHortans/HockeyCards.java
+--- a/../Oops/src/TimHortans/HockeyCards.java	
++++ b/../Oops/src/TimHortans/HockeyCards.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class HockeyCards {
++package TimHortans;
++
++public class HockeyCards implements TimsMerch{
++    @Override
++    public double getPrice() {
++        return 10;
++    }
++
++    @Override
++    public String getFeatures() {
++        return "Amazing cards";
++    }
++
++    @Override
++    public String toString() {
++        return "HockeyCards";
++    }
+ }
+Index: ../Oops/src/TimHortans/Donuts.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Donuts {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Donuts.java b/../Oops/src/TimHortans/Donuts.java
+--- a/../Oops/src/TimHortans/Donuts.java	
++++ b/../Oops/src/TimHortans/Donuts.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class Donuts {
++package TimHortans;
++
++public class Donuts implements TimsConsumables{
++    @Override
++    public int getCalories() {
++        return 190;
++    }
++
++    @Override
++    public double getPrice() {
++        return 2.25;
++    }
++
++    @Override
++    public String toString() {
++        return "Donuts";
++    }
+ }
+Index: ../Oops/src/BMW.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class BMW {\n}\n
+===================================================================
+diff --git a/../Oops/src/BMW.java b/../Oops/src/BMW.java
+--- a/../Oops/src/BMW.java	
++++ b/../Oops/src/BMW.java	
+@@ -1,2 +1,8 @@
+-package PACKAGE_NAME;public class BMW {
++public class BMW extends Car{
++    String autoDrive;
++
++
++    public BMW(String type, boolean highInsurance) {
++        super(type, highInsurance);
++    }
+ }
+Index: ../Oops/src/Employee.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Employee {\n}\n
+===================================================================
+diff --git a/../Oops/src/Employee.java b/../Oops/src/Employee.java
+--- a/../Oops/src/Employee.java	
++++ b/../Oops/src/Employee.java	
+@@ -1,2 +1,14 @@
+-package PACKAGE_NAME;public class Employee {
++public class Employee {
++    int id,salary;
++    String company;
++
++    public Employee(int id, int salary, String company) {
++        this.id = id;
++        this.salary = salary;
++        this.company = company;
++    }
++
++    public int calculateSalary(){
++        return 0;
++    }
+ }
+Index: ../Oops/src/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Car {\n}\n
+===================================================================
+diff --git a/../Oops/src/Car.java b/../Oops/src/Car.java
+--- a/../Oops/src/Car.java	
++++ b/../Oops/src/Car.java	
+@@ -1,2 +1,20 @@
+-package PACKAGE_NAME;public class Car {
++public class Car extends Vehicle{
++    String type;
++    boolean highInsurance;
++
++    public Car(String type, boolean highInsurance){
++        super("black",4,2023);
++        this.type = type;
++        this.highInsurance = highInsurance;
++    }
++    public void drive(){
++        type = "SUV";
++        make = "Toyota";
++        System.out.println("A car is driving");
++    }
++    @Override
++    public void accelerate(int a, int b){
++        System.out.println("gunnig ......");
++    }
++
+ }
+Index: ../Oops/src/TimHortans/Wrap.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Wrap {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Wrap.java b/../Oops/src/TimHortans/Wrap.java
+--- a/../Oops/src/TimHortans/Wrap.java	
++++ b/../Oops/src/TimHortans/Wrap.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class Wrap {
++package TimHortans;
++
++public class Wrap implements TimsConsumables{
++    @Override
++    public int getCalories() {
++        return 399;
++    }
++
++    @Override
++    public double getPrice() {
++        return 7.79;
++    }
++
++    @Override
++    public String toString() {
++        return "Wrap";
++    }
+ }
+Index: ../Oops/src/Student.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Student {\n}\n
+===================================================================
+diff --git a/../Oops/src/Student.java b/../Oops/src/Student.java
+--- a/../Oops/src/Student.java	
++++ b/../Oops/src/Student.java	
+@@ -1,2 +1,2 @@
+-package PACKAGE_NAME;public class Student {
++public class Student {
+ }
+Index: ../Oops/src/TimHortans/Sandwich.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package TimHortans;public class Sandwich {\n}\n
+===================================================================
+diff --git a/../Oops/src/TimHortans/Sandwich.java b/../Oops/src/TimHortans/Sandwich.java
+--- a/../Oops/src/TimHortans/Sandwich.java	
++++ b/../Oops/src/TimHortans/Sandwich.java	
+@@ -1,2 +1,18 @@
+-package TimHortans;public class Sandwich {
++package TimHortans;
++
++public class Sandwich implements TimsConsumables{
++    @Override
++    public int getCalories() {
++        return 349;
++    }
++
++    @Override
++    public double getPrice() {
++        return 6.69;
++    }
++
++    @Override
++    public String toString() {
++        return "Sandwich";
++    }
+ }
+Index: ../Oops/src/Contractor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Contractor {\n}\n
+===================================================================
+diff --git a/../Oops/src/Contractor.java b/../Oops/src/Contractor.java
+--- a/../Oops/src/Contractor.java	
++++ b/../Oops/src/Contractor.java	
+@@ -1,2 +1,14 @@
+-package PACKAGE_NAME;public class Contractor {
++public class Contractor extends Fulltime{
++    int bonus, extraSalary;
++
++    public Contractor(int id, int salary, String company, String perks, String position, int bonus, int extraSalary) {
++        super(id, salary, company, perks, position);
++        this.bonus = bonus;
++        this.extraSalary = extraSalary;
++    }
++
++    @Override
++    public int calculateSalary(){
++        return bonus + extraSalary + salary;
++    }
+ }
+Index: ../Oops/src/Parttime.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Parttime {\n}\n
+===================================================================
+diff --git a/../Oops/src/Parttime.java b/../Oops/src/Parttime.java
+--- a/../Oops/src/Parttime.java	
++++ b/../Oops/src/Parttime.java	
+@@ -1,2 +1,14 @@
+-package PACKAGE_NAME;public class Parttime {
++public class Parttime extends Employee{
++    int hours, wage;
++
++    public Parttime(int id, int salary, String company, int hours, int wage) {
++        super(id, salary, company);
++        this.hours = hours;
++        this.wage = wage;
++    }
++
++    @Override
++    public int calculateSalary(){
++        return hours * wage * 52;
++    }
+ }
+Index: ../Oops/src/Fulltime.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;public class Fulltime {\n}\n
+===================================================================
+diff --git a/../Oops/src/Fulltime.java b/../Oops/src/Fulltime.java
+--- a/../Oops/src/Fulltime.java	
++++ b/../Oops/src/Fulltime.java	
+@@ -1,2 +1,15 @@
+-package PACKAGE_NAME;public class Fulltime {
++public class Fulltime extends Employee{
++    String perks, position;
++    int salary;
++
++    public Fulltime(int id, int salary, String company, String perks, String position) {
++        super(id, salary, company);
++        this.perks = perks;
++        this.position = position;
++    }
++
++    @Override
++    public int calculateSalary(){
++        return salary;
++    }
+ }
+Index: ../Oops/src/IAbstractRobots.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public abstract class AbstractRobots {\n    public abstract void hardStop1();\n    public abstract void hardStop2();\n\n    public abstract void start();\n\n    public abstract void stop();\n\n\n}\n
+===================================================================
+diff --git a/../Oops/src/IAbstractRobots.java b/../Oops/src/IAbstractRobots.java
+--- a/../Oops/src/IAbstractRobots.java	
++++ b/../Oops/src/IAbstractRobots.java	
+@@ -1,10 +1,3 @@
+-public abstract class AbstractRobots {
+-    public abstract void hardStop1();
+-    public abstract void hardStop2();
+-
+-    public abstract void start();
+-
+-    public abstract void stop();
+-
++public abstract class IAbstractRobots implements ISpecialRobot {
+ 
+ }
