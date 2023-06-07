@@ -1,11 +1,16 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+      //  Employee e = new Employee();
+
         //Generic classes
         //ArrayList default array size : 10
+        //Accessing data
         ArrayList<String> names = new ArrayList<>();
 
 
@@ -33,5 +38,13 @@ public class Main {
             }
         }
         System.out.println(names);
+
+        //LinkedList -> Modification
+
+        List<String> name = new LinkedList<>();
+        name.add("chintan");
+        name.add("patel");
+        ((LinkedList<String>)name).add(2,"nish");
+        ((LinkedList<String>)name).addFirst("nishudi");
     }
 }
