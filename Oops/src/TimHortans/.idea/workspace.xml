@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b22b29e0-bb13-4588-9141-01e5ad024e4a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Assignment-1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Assignment-1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CollectionTemp/src/Exercise/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CollectionTemp/src/Exercise/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CollectionTemp/src/TreeMap/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CollectionTemp/src/TreeMap/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DataStructure/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DataStructure/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DataStructure/src/UserDetailsValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DataStructure/src/UserDetailsValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../gbc-comp3095-pet-clinic" beforeDir="false" afterPath="$PROJECT_DIR$/../../../gbc-comp3095-pet-clinic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java-pragra" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java-pragra" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2R1G50eXJ7CiHofx8NnWTyfLHJV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/chintanghevariya/IdeaProjects/Oops/src/TimHortans"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b22b29e0-bb13-4588-9141-01e5ad024e4a" name="Changes" comment="" />
+      <created>1686409986911</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686409986911</updated>
+    </task>
+    <servers />
+  </component>
+</project>
