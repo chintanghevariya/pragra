@@ -13,7 +13,7 @@ public class Lesson {
 //        studentNames[4] = "chintan";
 //        studentNames[5] = "nishtha";
 //        studentNames[6] = "rutikk";
-//        studentNames[7] = "shrey";
+//        studentNames[7] = "shrey"; dvd
 
         orderPrice[2] = 5;
         orderPrice[5] = 8;
