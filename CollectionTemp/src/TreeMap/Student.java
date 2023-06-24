@@ -19,14 +19,14 @@ public class Student implements Comparable<Student> {
     @Override
     public int compareTo(Student student) {
         //return this.name.compareTo(student.name);
-        return this.age.compareTo(student.age);
-//        if(this.age == student.age)
-//            return 0;
-//        else if(this.age > student.age){
-//            return 1;
-//        }else{
-//            return -1;
-//        }
+        //return this.age.compareTo(student.age);
+            if(this.age == student.age)
+                return 0;
+            else if(this.age > student.age){
+                return 1;
+            }else{
+                return -1;
+            }
 
     }
 

@@ -1,2 +1,3 @@
-package TimHortans;public class Main {
+package TimHortans;
+public class Main {
 }

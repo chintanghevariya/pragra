@@ -2,15 +2,17 @@ package Exercise;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        Employee emp1 = new Employee("John", "Smith", 30, 50000, "ABC Company");
-        Employee emp2 = new Employee("Jane", "Doe", 25, 60000, "ABC Company");
-        Employee emp3 = new Employee("Mic", "Johnson", 35, 40000, "XYZ Company");
-        Employee emp4 = new Employee("Em", "Brown", 28, 35000, "XYZ Company");
-        Employee emp5 = new Employee("David", "Jones", 32, 65000, "XYZ Company");
+        Date d1 = new Date(2023,8,25);
+        Date d2 = new Date(2023,7,25);
+        Employee emp1 = new Employee("ramesh", "Patel", 30, 50000, "Google");
+        Employee emp2 = new Employee("suresh", "Vora", 25, 60000, "Apple");
+        Employee emp3 = new Employee("mahesh", "shah", 35, 40000, "Microsoft");
+        Employee emp4 = new Employee("dinesh", "devani", 28, 35000, "Ola");
+        Employee emp5 = new Employee("vinu", "bhalani", 32, 65000, "Uber");
 
-        // Create 2 teams
-        Team team1 = new Team("Digital Wallet", "Feature 1, Feature 2", "Mark", 100000, new Date());
-        Team team2 = new Team("Mobile Banking", "Feature 3, Feature 4", "Laura", 80000, new Date());
+        //Create 2 teams
+        Team team1 = new Team("Car Pooling", "Book ride, Cancel Ride", "Patel", 100000, d1);
+        Team team2 = new Team("Zomato", "Order food,  Order Groceries", "Ambani", 75000, d2);
 
         HashMap<Employee, Team> employeeTeamMap = new HashMap<>();
         employeeTeamMap.put(emp1, team1);
@@ -25,11 +27,12 @@ public class Main {
 
         employeeTeamMap.entrySet().removeIf(entry -> entry.getKey().salary < 50000);
 
-        System.out.println("after removal the employee below 50000 salary");
+        System.out.println("\nafter removal the employee below 50000 salary\n");
         employeeTeamMap.forEach((employee, team) ->
                 System.out.println(employee.getFirstName() + " is working under " + team.stakeholders
                         + " in " + team.projectName + " team"));
 
+        // Adding emp with the salary of 50000 or more to set.
         Set<Employee> employeesSet = new HashSet<>();
         for (Map.Entry<Employee, Team> entry : employeeTeamMap.entrySet()) {
             if (entry.getKey().salary >= 50000) {
@@ -39,7 +42,7 @@ public class Main {
 
         Iterator<Employee> iterator = employeesSet.iterator();
 
-        System.out.println("emp with salary more than 50000");
+        System.out.println("\nemp with salary more than 50000\n");
         while (iterator.hasNext()) {
             Employee employee = iterator.next();
             System.out.println(employee.getFirstName());
@@ -47,17 +50,15 @@ public class Main {
 
         List<Employee> employeesList = new ArrayList<>(employeesSet);
 
-        // Remove employee with salary 50000 from the list
+        // Remove emp with salary 50000 from the list
         employeesList.removeIf(employee -> employee.salary == 50000);
 
-        System.out.println("updated list");
+        System.out.println("\nupdated list after removing with salary of 50,000\n");
 
         Iterator<Employee> i = employeesList.iterator();
         while(i.hasNext()){
             Employee employee = i.next();
             System.out.println(employee.getFirstName());
         }
-
-
     }
 }

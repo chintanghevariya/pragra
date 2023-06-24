@@ -5,7 +5,8 @@ public class UserDetailsValidation {
     public void validateFirstName(Scanner sc) throws NameValidationException{
         System.out.println("Enter first name:");
        firstName = sc.nextLine();
-        while(firstName.length() > 10) {
+        while(firstName.length() > 10) throw new NameValidationException();
+        {
             System.out.println("Enter firstname which has less than 10 char");
             firstName = sc.nextLine();
         }

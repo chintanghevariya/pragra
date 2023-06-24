@@ -52,7 +52,6 @@ public class Main {
                                             totalPrice += tempPrice * temp;
                                             orders.put(cf,quantity);
                                         }else {
-                                            quantity = temp;
                                             orders.put(cf, temp);
                                             totalPrice += cf.getPrice() * temp;
                                         }
