@@ -1,12 +1,15 @@
 package co.pragra.pragracoffeetime.entity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import lombok.Value;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "TABLE_CUSTOMER")
+@ApiModel(value="Customer")
 public class Customer {
 
     @Id
@@ -19,7 +22,4 @@ public class Customer {
     private String lastName;
     @Column
     private String phone;
-
-
-
 }

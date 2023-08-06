@@ -9,10 +9,21 @@
     <h1 class="text-blue-500 text-7xl max-w-7xl mx-auto">
         Welcome to pragra coffee time
     </h1>
-    <header>
-        <a th:href="@{/customer/create}" type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm
-         font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
-        focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add user</a>
-    </header>
+
+    <table class="align-center">
+        <tr>
+            <td>
+                <a th:href="@{/customer/create}" type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm
+             font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add user</a>
+            </td>
+
+            <td>
+                <a th:href="@{/customer/all}" type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm
+             font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-indigo-600">List Users</a>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
